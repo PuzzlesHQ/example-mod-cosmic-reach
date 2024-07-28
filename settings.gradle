@@ -1,0 +1,15 @@
+pluginManagement {
+    repositories {
+        maven { url "https://maven.crmodders.dev/plugins" }
+        maven { url "https://maven.crmodders.dev/releases" }
+        maven {
+            name "JitPack"
+            url "https://jitpack.io"
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'PLExampleMod'
+
