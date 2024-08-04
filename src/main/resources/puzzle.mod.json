@@ -18,7 +18,7 @@
     "example.mixins.json"
   ],
   "dependencies": {
-    "cosmic-reach": ">=0.1.42"
+    "cosmic-reach": ">=0.1.43"
   },
   "accessManipulator": "example_mod.manipulator"
 }

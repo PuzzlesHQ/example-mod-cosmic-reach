@@ -1,8 +1,8 @@
 package org.example.exmod;
 
-import dev.crmodders.puzzle.loader.entrypoint.interfaces.PreInitModInitializer;
+import com.github.puzzle.loader.entrypoint.interfaces.PreModInitializer;
 
-public class ExampleModPreinit implements PreInitModInitializer {
+public class ExampleModPreinit implements PreModInitializer {
 
     @Override
     public void onPreInit() {

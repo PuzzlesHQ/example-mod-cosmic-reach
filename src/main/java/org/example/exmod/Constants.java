@@ -1,6 +1,6 @@
 package org.example.exmod;
 
-import dev.crmodders.puzzle.core.Identifier;
+import com.github.puzzle.core.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
