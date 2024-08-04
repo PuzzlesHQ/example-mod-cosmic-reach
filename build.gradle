@@ -16,6 +16,8 @@ repositories {
 tasks.register("runLoader", JavaExec) {
     group = "loader"
 
+    workingDir = "$projectDir/run"
+
     classpath = sourceSets.main.runtimeClasspath
     mainClass = "com.github.puzzle.loader.launch.Piece"
 }
