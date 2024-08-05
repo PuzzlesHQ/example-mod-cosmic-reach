@@ -12,16 +12,6 @@ repositories {
     mavenCentral()
 }
 
-// You can also use runClient task located in Tasks/puzzle/runClient
-tasks.register("runLoader", JavaExec) {
-    group = "loader"
-
-    workingDir = "$projectDir/run"
-
-    classpath = sourceSets.main.runtimeClasspath
-    mainClass = "com.github.puzzle.loader.launch.Piece"
-}
-
 dependencies {
 }
 
