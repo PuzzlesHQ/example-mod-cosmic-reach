@@ -5,10 +5,12 @@ import com.github.puzzle.core.Identifier;
 import com.github.puzzle.game.blockentities.ExtendedBlockEntity;
 import com.github.puzzle.game.blockentities.IRenderable;
 import com.github.puzzle.game.blockentities.ITickable;
+import com.github.puzzle.game.util.BlockUtil;
 import finalforeach.cosmicreach.blockentities.BlockEntityCreator;
 import finalforeach.cosmicreach.blocks.Block;
 import finalforeach.cosmicreach.blocks.BlockPosition;
 import finalforeach.cosmicreach.blocks.BlockState;
+import finalforeach.cosmicreach.gamestates.InGame;
 import finalforeach.cosmicreach.world.Zone;
 import org.example.exmod.Constants;
 
@@ -31,11 +33,11 @@ public class ExampleBlockEntity extends ExtendedBlockEntity implements IRenderab
 
     @Override
     public void onTick(float tps) {
-        BlockPosition above = position.getOffsetBlockPos(position.chunk.region.zone, 0, 1, 0);
+        BlockPosition above = BlockUtil.getBlockPosAtVec(zone, x, y, z).getOffsetBlockPos(zone, 0, 1, 0);
         BlockState current = above.getBlockState();
         if(current.getBlock() == Block.AIR) {
             above.setBlockState(Block.GRASS.getDefaultBlockState());
-            above.flagTouchingChunksForRemeshing(position.chunk.region.zone, false);
+            above.flagTouchingChunksForRemeshing(zone, false);
         }
     }
 
