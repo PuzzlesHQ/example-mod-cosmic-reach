@@ -19,6 +19,7 @@ import org.example.exmod.blocks.Bedrock;
 import org.example.exmod.commands.Commands;
 import org.example.exmod.items.ExampleCyclingItem;
 import org.example.exmod.items.ExamplePickaxe;
+import org.example.exmod.worldgen.ExampleZoneGenerator;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.io.IOException;
@@ -48,7 +49,7 @@ public class ExampleMod implements ModInitializer {
 
     @Subscribe
     public void onEvent(OnRegisterZoneGenerators event) {
-//        event.registerGenerator(ExampleZoneGenerator::new);
+        event.registerGenerator(ExampleZoneGenerator::new);
     }
 
     @Subscribe
