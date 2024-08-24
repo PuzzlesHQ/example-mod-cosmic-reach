@@ -14,8 +14,12 @@ public class ExamplePickaxe implements IModItem {
     Identifier id = new Identifier(Constants.MOD_ID, "example_pickaxe");
 
     public ExamplePickaxe() {
-        tagManifest.addTag(IModItem.TEXTURE_LOCATION_PRESET.createTag(new ResourceLocation(Constants.MOD_ID, "textures/items/example_pickaxe.png")));
-        tagManifest.addTag(IModItem.MODEL_ID_PRESET.createTag(IModItem.MODEL_2_5D_ITEM));
+        addTexture(IModItem.MODEL_2_5D_ITEM, new ResourceLocation(Constants.MOD_ID, "textures/items/example_pickaxe.png"));
+    }
+
+    @Override
+    public String toString() {
+        return id.toString();
     }
 
     @Override

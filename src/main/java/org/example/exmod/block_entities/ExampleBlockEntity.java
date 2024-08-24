@@ -4,16 +4,16 @@ import com.badlogic.gdx.graphics.Camera;
 import com.github.puzzle.core.Identifier;
 import com.github.puzzle.game.blockentities.ExtendedBlockEntity;
 import com.github.puzzle.game.blockentities.IRenderable;
-import com.github.puzzle.game.blockentities.ITickable;
 import com.github.puzzle.game.util.BlockUtil;
 import finalforeach.cosmicreach.blockentities.BlockEntityCreator;
+import finalforeach.cosmicreach.blockentities.BlockEntityFurnace;
 import finalforeach.cosmicreach.blocks.Block;
 import finalforeach.cosmicreach.blocks.BlockPosition;
 import finalforeach.cosmicreach.blocks.BlockState;
 import finalforeach.cosmicreach.world.Zone;
 import org.example.exmod.Constants;
 
-public class ExampleBlockEntity extends ExtendedBlockEntity implements IRenderable, ITickable {
+public class ExampleBlockEntity extends ExtendedBlockEntity implements IRenderable {
 
     static Identifier id = new Identifier(Constants.MOD_ID, "example_entity");
 
@@ -31,7 +31,12 @@ public class ExampleBlockEntity extends ExtendedBlockEntity implements IRenderab
     }
 
     @Override
-    public void onTick(float tps) {
+    public boolean isTicking() {
+        return true;
+    }
+
+    @Override
+    public void onTick() {
         BlockPosition above = BlockUtil.getBlockPosAtVec(zone, x, y, z).getOffsetBlockPos(zone, 0, 1, 0);
         BlockState current = above.getBlockState();
         if(current.getBlock() == Block.AIR) {

@@ -9,6 +9,7 @@ import com.github.puzzle.core.resources.ResourceLocation;
 import com.github.puzzle.game.block.DataModBlock;
 import com.github.puzzle.game.events.OnPreLoadAssetsEvent;
 import com.github.puzzle.game.events.OnRegisterBlockEvent;
+import com.github.puzzle.game.events.OnRegisterZoneGenerators;
 import com.github.puzzle.game.items.IModItem;
 import com.github.puzzle.game.items.impl.BasicItem;
 import com.github.puzzle.game.items.impl.BasicTool;
@@ -16,6 +17,7 @@ import com.github.puzzle.loader.entrypoint.interfaces.ModInitializer;
 import org.example.exmod.block_entities.ExampleBlockEntity;
 import org.example.exmod.blocks.Bedrock;
 import org.example.exmod.commands.Commands;
+import org.example.exmod.items.ExampleCyclingItem;
 import org.example.exmod.items.ExamplePickaxe;
 import org.greenrobot.eventbus.Subscribe;
 
@@ -33,6 +35,7 @@ public class ExampleMod implements ModInitializer {
         Commands.register();
 
         IModItem.registerItem(new ExamplePickaxe());
+        IModItem.registerItem(new ExampleCyclingItem());
         IModItem.registerItem(new BasicItem(Identifier.of(Constants.MOD_ID, "example_item")));
         IModItem.registerItem(new BasicTool(Identifier.of(Constants.MOD_ID, "stone_sword")));
     }
@@ -41,6 +44,11 @@ public class ExampleMod implements ModInitializer {
     public void onEvent(OnRegisterBlockEvent event) {
         event.registerBlock(() -> new DataModBlock("diamond_block", new ResourceLocation(Constants.MOD_ID, "blocks/diamond_block.json")));
         event.registerBlock(Bedrock::new);
+    }
+
+    @Subscribe
+    public void onEvent(OnRegisterZoneGenerators event) {
+//        event.registerGenerator(ExampleZoneGenerator::new);
     }
 
     @Subscribe

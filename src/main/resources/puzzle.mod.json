@@ -6,6 +6,9 @@
   "authors": [
     "YOU :D"
   ],
+  "meta": {
+    "icon": "assets/example-mod/icons/icon.png"
+  },
   "entrypoints": {
     "preInit": [
       "org.example.exmod.ExampleModPreinit"
