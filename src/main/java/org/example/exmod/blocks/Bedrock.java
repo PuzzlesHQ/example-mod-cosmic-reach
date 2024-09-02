@@ -14,6 +14,7 @@ import finalforeach.cosmicreach.items.ItemSlot;
 import finalforeach.cosmicreach.ui.UI;
 import finalforeach.cosmicreach.world.Zone;
 import org.example.exmod.Constants;
+import org.example.exmod.block_entities.ExampleBlockEntity;
 
 import java.util.List;
 import java.util.Map;
@@ -24,6 +25,11 @@ public class Bedrock implements IModBlock {
     public static final String BLOCK_NAME = "bedrock";
 
     public static final ResourceLocation ALL_TEXTURE = new ResourceLocation("base", "textures/blocks/lunar_soil.png");
+
+    @Override
+    public Identifier getIdentifier() {
+        return BLOCK_ID;
+    }
 
     @Override
     public void onBreak(Zone zone, Player player, BlockState blockState, BlockPosition position) {
@@ -44,7 +50,7 @@ public class Bedrock implements IModBlock {
     public BlockGenerator getBlockGenerator() {
         BlockGenerator generator = new BlockGenerator(BLOCK_ID, BLOCK_NAME);
         generator.createBlockState("default", "model", true, "events", true);
-        generator.addBlockEntity(Constants.MOD_ID+":example_entity", Map.of());
+        generator.addBlockEntity(ExampleBlockEntity.id.toString(), Map.of());
         return generator;
     }
 
