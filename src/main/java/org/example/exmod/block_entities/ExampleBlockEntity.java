@@ -51,11 +51,6 @@ public class ExampleBlockEntity extends BlockEntity implements IRenderable {
     }
 
     @Override
-    public boolean isTicking() {
-        return super.isTicking();
-    }
-
-    @Override
     public void onTick() {
         BlockPosition above = BlockUtil.getBlockPosAtVec(zone, x, y, z).getOffsetBlockPos(zone, 0, 1, 0);
         BlockState current = above.getBlockState();
