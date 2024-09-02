@@ -46,11 +46,6 @@ public class ExampleBlockEntity extends BlockEntity implements IRenderable {
     }
 
     @Override
-    public void read(CRBinDeserializer deserial) {
-        super.read(deserial);
-    }
-
-    @Override
     public String getBlockEntityId() {
         return id.toString();
     }
