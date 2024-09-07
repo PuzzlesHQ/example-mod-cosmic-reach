@@ -96,18 +96,6 @@ public class ExampleCyclingItem implements IModItem, ITickingItem {
         return false;
     }
 
-    int getCurrentEntry(ItemStack stack) {
-        DataTagManifest manifest = DataTagUtil.getManifestFromStack(stack);
-        if (!manifest.hasTag("currentEntry")) manifest.addTag(new DataTag<>("currentEntry", new IntDataAttribute(0)));
-        return manifest.getTag("currentEntry").getTagAsType(Integer.class).getValue();
-    }
-
-    void setCurrentEntry(ItemStack stack, int entry) {
-        DataTagManifest manifest = DataTagUtil.getManifestFromStack(stack);
-        manifest.addTag(new DataTag<>("currentEntry", new IntDataAttribute(entry)));
-        DataTagUtil.setManifestOnStack(manifest, stack);
-    }
-
     @Override
     public void tickStack(float fixedUpdateTimeStep, ItemStack stack, boolean isBeingHeld) {
         int textureEntry = getCurrentEntry(stack);
