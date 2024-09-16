@@ -1,17 +1,17 @@
 package org.example.exmod.blocks;
 
-import com.github.puzzle.core.Identifier;
-import com.github.puzzle.core.resources.ResourceLocation;
 import com.github.puzzle.game.block.IModBlock;
 import com.github.puzzle.game.generators.BlockEventGenerator;
 import com.github.puzzle.game.generators.BlockGenerator;
 import com.github.puzzle.game.generators.BlockModelGenerator;
+import finalforeach.cosmicreach.blockentities.BlockEntity;
 import finalforeach.cosmicreach.blocks.BlockPosition;
 import finalforeach.cosmicreach.blocks.BlockState;
 import finalforeach.cosmicreach.entities.player.Player;
 import finalforeach.cosmicreach.items.Item;
 import finalforeach.cosmicreach.items.ItemSlot;
 import finalforeach.cosmicreach.ui.UI;
+import finalforeach.cosmicreach.util.Identifier;
 import finalforeach.cosmicreach.world.Zone;
 import org.example.exmod.Constants;
 import org.example.exmod.block_entities.ExampleBlockEntity;
@@ -21,10 +21,9 @@ import java.util.Map;
 
 public class Bedrock implements IModBlock {
 
-    public static final Identifier BLOCK_ID = new Identifier(Constants.MOD_ID, "bedrock");
-    public static final String BLOCK_NAME = "bedrock";
+    public static final Identifier BLOCK_ID = Identifier.of(Constants.MOD_ID, "bedrock");
 
-    public static final ResourceLocation ALL_TEXTURE = new ResourceLocation("base", "textures/blocks/lunar_soil.png");
+    public static final Identifier ALL_TEXTURE = Identifier.of("base", "textures/blocks/lunar_soil.png");
 
     @Override
     public Identifier getIdentifier() {
@@ -48,7 +47,7 @@ public class Bedrock implements IModBlock {
 
     @Override
     public BlockGenerator getBlockGenerator() {
-        BlockGenerator generator = new BlockGenerator(BLOCK_ID, BLOCK_NAME);
+        BlockGenerator generator = new BlockGenerator(BLOCK_ID);
         generator.createBlockState("default", "model", true, "events", true);
         generator.addBlockEntity(ExampleBlockEntity.id.toString(), Map.of());
         return generator;

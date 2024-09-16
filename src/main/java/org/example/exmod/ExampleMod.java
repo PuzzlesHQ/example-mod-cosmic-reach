@@ -1,11 +1,10 @@
 package org.example.exmod;
 
-import com.github.puzzle.core.Identifier;
 import com.github.puzzle.core.PuzzleRegistries;
 import com.github.puzzle.core.localization.ILanguageFile;
 import com.github.puzzle.core.localization.LanguageManager;
 import com.github.puzzle.core.localization.files.LanguageFileVersion1;
-import com.github.puzzle.core.resources.ResourceLocation;
+import com.github.puzzle.core.resources.PuzzleGameAssetLoader;
 import com.github.puzzle.game.block.DataModBlock;
 import com.github.puzzle.game.events.OnPreLoadAssetsEvent;
 import com.github.puzzle.game.events.OnRegisterBlockEvent;
@@ -14,6 +13,7 @@ import com.github.puzzle.game.items.IModItem;
 import com.github.puzzle.game.items.impl.BasicItem;
 import com.github.puzzle.game.items.impl.BasicTool;
 import com.github.puzzle.loader.entrypoint.interfaces.ModInitializer;
+import finalforeach.cosmicreach.util.Identifier;
 import org.example.exmod.block_entities.ExampleBlockEntity;
 import org.example.exmod.blocks.Bedrock;
 import org.example.exmod.commands.Commands;
@@ -23,6 +23,7 @@ import org.example.exmod.worldgen.ExampleZoneGenerator;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class ExampleMod implements ModInitializer {
 
@@ -43,7 +44,7 @@ public class ExampleMod implements ModInitializer {
 
     @Subscribe
     public void onEvent(OnRegisterBlockEvent event) {
-        event.registerBlock(() -> new DataModBlock("diamond_block", new ResourceLocation(Constants.MOD_ID, "blocks/diamond_block.json")));
+        event.registerBlock(() -> new DataModBlock(Identifier.of(Constants.MOD_ID, "diamond_block.json")));
         event.registerBlock(Bedrock::new);
     }
 
@@ -56,7 +57,9 @@ public class ExampleMod implements ModInitializer {
     public void onEvent(OnPreLoadAssetsEvent event) {
         ILanguageFile lang = null;
         try {
-            lang = LanguageFileVersion1.loadLanguageFromString(new ResourceLocation(Constants.MOD_ID, "languages/en-US.json").locate().readString());
+            lang = LanguageFileVersion1.loadLanguageFile(
+                    Objects.requireNonNull(PuzzleGameAssetLoader.locateAsset(Identifier.of(Constants.MOD_ID, "languages/en-US.json")))
+            );
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

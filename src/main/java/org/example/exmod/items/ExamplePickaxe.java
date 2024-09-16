@@ -1,20 +1,19 @@
 package org.example.exmod.items;
 
-import com.github.puzzle.core.Identifier;
-import com.github.puzzle.core.resources.ResourceLocation;
 import com.github.puzzle.game.items.IModItem;
 import com.github.puzzle.game.items.data.DataTagManifest;
 import finalforeach.cosmicreach.blocks.BlockState;
 import finalforeach.cosmicreach.items.ItemStack;
+import finalforeach.cosmicreach.util.Identifier;
 import org.example.exmod.Constants;
 
 public class ExamplePickaxe implements IModItem {
 
     DataTagManifest tagManifest = new DataTagManifest();
-    Identifier id = new Identifier(Constants.MOD_ID, "example_pickaxe");
+    Identifier id = Identifier.of(Constants.MOD_ID, "example_pickaxe");
 
     public ExamplePickaxe() {
-        addTexture(IModItem.MODEL_2_5D_ITEM, new ResourceLocation(Constants.MOD_ID, "textures/items/example_pickaxe.png"));
+        addTexture(IModItem.MODEL_2_5D_ITEM, Identifier.of(Constants.MOD_ID, "example_pickaxe.png"));
     }
 
     @Override
@@ -46,6 +45,11 @@ public class ExamplePickaxe implements IModItem {
                 || blockState.getBlockId().equals("base:stone_gabbro")
                 || blockState.getBlockId().equals("base:stone_limestone")
                 || blockState.getBlockId().equals("base:lunar_soil_packed");
+    }
+
+    @Override
+    public String getName() {
+        return "Example Pickaxe";
     }
 
     @Override

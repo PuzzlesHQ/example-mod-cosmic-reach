@@ -1,20 +1,15 @@
 package org.example.exmod.items;
 
-import com.github.puzzle.core.Identifier;
 import com.github.puzzle.core.Puzzle;
-import com.github.puzzle.core.resources.ResourceLocation;
 import com.github.puzzle.game.items.IModItem;
 import com.github.puzzle.game.items.ITickingItem;
-import com.github.puzzle.game.items.data.DataTag;
 import com.github.puzzle.game.items.data.DataTagManifest;
-import com.github.puzzle.game.items.data.attributes.IntDataAttribute;
 import com.github.puzzle.game.items.data.attributes.ListDataAttribute;
-import com.github.puzzle.game.util.DataTagUtil;
-import finalforeach.cosmicreach.blocks.BlockState;
 import finalforeach.cosmicreach.entities.ItemEntity;
 import finalforeach.cosmicreach.entities.player.Player;
 import finalforeach.cosmicreach.items.ItemSlot;
 import finalforeach.cosmicreach.items.ItemStack;
+import finalforeach.cosmicreach.util.Identifier;
 import finalforeach.cosmicreach.world.Zone;
 import org.example.exmod.Constants;
 
@@ -26,7 +21,7 @@ import java.net.URISyntaxException;
 public class ExampleCyclingItem implements IModItem, ITickingItem {
 
     DataTagManifest tagManifest = new DataTagManifest();
-    Identifier id = new Identifier(Constants.MOD_ID, "example_cycling_item");
+    Identifier id = Identifier.of(Constants.MOD_ID, "example_cycling_item");
 
     @Override
     public String toString() {
@@ -38,28 +33,28 @@ public class ExampleCyclingItem implements IModItem, ITickingItem {
     public ExampleCyclingItem() {
         addTexture(
                 IModItem.MODEL_2_5D_ITEM,
-                new ResourceLocation(Puzzle.MOD_ID, "textures/items/null_stick.png"),
-                new ResourceLocation("base", "textures/items/axe_stone.png"),
-                new ResourceLocation("base", "textures/items/pickaxe_stone.png"),
-                new ResourceLocation("base", "textures/items/shovel_stone.png"),
-                new ResourceLocation("base", "textures/items/medkit.png"),
-                new ResourceLocation(Puzzle.MOD_ID, "textures/items/block_wrench.png"),
-                new ResourceLocation(Puzzle.MOD_ID, "textures/items/checker_board.png"),
-                new ResourceLocation(Puzzle.MOD_ID, "textures/items/checker_board1.png"),
-                new ResourceLocation(Puzzle.MOD_ID, "textures/items/checker_board2.png")
+                Identifier.of(Puzzle.MOD_ID, "null_stick.png"),
+                Identifier.of("base", "axe_stone.png"),
+                Identifier.of("base", "pickaxe_stone.png"),
+                Identifier.of("base", "shovel_stone.png"),
+                Identifier.of("base", "medkit.png"),
+                Identifier.of(Puzzle.MOD_ID, "block_wrench.png"),
+                Identifier.of(Puzzle.MOD_ID, "checker_board.png"),
+                Identifier.of(Puzzle.MOD_ID, "checker_board1.png"),
+                Identifier.of(Puzzle.MOD_ID, "checker_board2.png")
         );
 
         addTexture(
                 IModItem.MODEL_2D_ITEM,
-                new ResourceLocation(Puzzle.MOD_ID, "textures/items/null_stick.png"),
-                new ResourceLocation("base", "textures/items/axe_stone.png"),
-                new ResourceLocation("base", "textures/items/pickaxe_stone.png"),
-                new ResourceLocation("base", "textures/items/shovel_stone.png"),
-                new ResourceLocation("base", "textures/items/medkit.png"),
-                new ResourceLocation(Puzzle.MOD_ID, "textures/items/block_wrench.png"),
-                new ResourceLocation(Puzzle.MOD_ID, "textures/items/checker_board.png"),
-                new ResourceLocation(Puzzle.MOD_ID, "textures/items/checker_board1.png"),
-                new ResourceLocation(Puzzle.MOD_ID, "textures/items/checker_board2.png")
+                Identifier.of(Puzzle.MOD_ID, "null_stick.png"),
+                Identifier.of("base", "axe_stone.png"),
+                Identifier.of("base", "pickaxe_stone.png"),
+                Identifier.of("base", "shovel_stone.png"),
+                Identifier.of("base", "medkit.png"),
+                Identifier.of(Puzzle.MOD_ID, "block_wrench.png"),
+                Identifier.of(Puzzle.MOD_ID, "checker_board.png"),
+                Identifier.of(Puzzle.MOD_ID, "checker_board1.png"),
+                Identifier.of(Puzzle.MOD_ID, "checker_board2.png")
         );
 
         texture_count = ((ListDataAttribute) getTagManifest().getTag("textures").attribute).getValue().size() - 1;
@@ -96,16 +91,9 @@ public class ExampleCyclingItem implements IModItem, ITickingItem {
         return false;
     }
 
-    int getCurrentEntry(ItemStack stack) {
-        DataTagManifest manifest = DataTagUtil.getManifestFromStack(stack);
-        if (!manifest.hasTag("currentEntry")) manifest.addTag(new DataTag<>("currentEntry", new IntDataAttribute(0)));
-        return manifest.getTag("currentEntry").getTagAsType(Integer.class).getValue();
-    }
-
-    void setCurrentEntry(ItemStack stack, int entry) {
-        DataTagManifest manifest = DataTagUtil.getManifestFromStack(stack);
-        manifest.addTag(new DataTag<>("currentEntry", new IntDataAttribute(entry)));
-        DataTagUtil.setManifestOnStack(manifest, stack);
+    @Override
+    public String getName() {
+        return "Example Cycling Item";
     }
 
     @Override

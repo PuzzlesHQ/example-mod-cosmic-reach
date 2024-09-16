@@ -1,21 +1,19 @@
 package org.example.exmod.block_entities;
 
 import com.badlogic.gdx.graphics.Camera;
-import com.github.puzzle.core.Identifier;
-import com.github.puzzle.game.blockentities.IRenderable;
 import com.github.puzzle.game.util.BlockUtil;
 import finalforeach.cosmicreach.blockentities.BlockEntity;
 import finalforeach.cosmicreach.blockentities.BlockEntityCreator;
 import finalforeach.cosmicreach.blocks.Block;
 import finalforeach.cosmicreach.blocks.BlockPosition;
 import finalforeach.cosmicreach.blocks.BlockState;
-import finalforeach.cosmicreach.io.CRBinDeserializer;
+import finalforeach.cosmicreach.util.Identifier;
 import finalforeach.cosmicreach.world.Zone;
 import org.example.exmod.Constants;
 
-public class ExampleBlockEntity extends BlockEntity implements IRenderable {
+public class ExampleBlockEntity extends BlockEntity {
 
-    public static Identifier id = new Identifier(Constants.MOD_ID, "example_entity");
+    public static Identifier id = Identifier.of(Constants.MOD_ID, "example_entity");
 
     public static void register() {
         BlockEntityCreator.registerBlockEntityCreator(id.toString(), (block, zone, x, y, z) -> new ExampleBlockEntity(zone, x, y, z));
@@ -41,8 +39,8 @@ public class ExampleBlockEntity extends BlockEntity implements IRenderable {
 
     @Override
     public void onRemove() {
-        setTicking(false);
         super.onRemove();
+        setTicking(false);
     }
 
     @Override
@@ -60,9 +58,4 @@ public class ExampleBlockEntity extends BlockEntity implements IRenderable {
         }
     }
 
-    @Override
-    public void onRender(Camera camera) {
-        // add custom rendering logic here
-
-    }
 }
