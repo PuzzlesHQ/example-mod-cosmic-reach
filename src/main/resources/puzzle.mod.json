@@ -7,7 +7,7 @@
     "YOU :D"
   ],
   "meta": {
-    "icon": "assets/example-mod/icons/icon.png"
+    "icon": "example-mod:icons/icon.png"
   },
   "entrypoints": {
     "preInit": [
