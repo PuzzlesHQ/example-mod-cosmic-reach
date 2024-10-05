@@ -2,7 +2,7 @@
 > The example mod for [Puzzle Loader](https://github.com/PuzzleLoader/PuzzleLoader)
 
 ## How to test/build
-For testing in the dev env, you can use the `gradle runLoader` task
+For testing in the dev env, you can use the `gradle runClient` task
 
 For building, the usual `gradle buildBundleJar` task can be used. The output will be in the `build/libs/` folder
 
