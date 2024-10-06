@@ -13,6 +13,7 @@ repositories {
 }
 
 dependencies {
+    compileOnly("finalforeach:cosmicreach:$cosmic_reach_version:client")
 }
 
 processResources {
