@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "cosmic-reach": ">=0.3.1",
-    "puzzle-loader": ">=1.5.8"
+    "puzzle-loader": ">=2.0.0"
   },
   "accessManipulator": "example_mod.manipulator"
 }

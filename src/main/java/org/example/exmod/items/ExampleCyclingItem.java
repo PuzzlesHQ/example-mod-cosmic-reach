@@ -1,6 +1,5 @@
 package org.example.exmod.items;
 
-import com.github.puzzle.core.Puzzle;
 import com.github.puzzle.game.items.IModItem;
 import com.github.puzzle.game.items.ITickingItem;
 import com.github.puzzle.game.items.data.DataTagManifest;
@@ -22,6 +21,7 @@ public class ExampleCyclingItem implements IModItem, ITickingItem {
 
     DataTagManifest tagManifest = new DataTagManifest();
     Identifier id = Identifier.of(Constants.MOD_ID, "example_cycling_item");
+    static final String PuzzleID = com.github.puzzle.core.Constants.MOD_ID;
 
     @Override
     public String toString() {
@@ -33,28 +33,28 @@ public class ExampleCyclingItem implements IModItem, ITickingItem {
     public ExampleCyclingItem() {
         addTexture(
                 IModItem.MODEL_2_5D_ITEM,
-                Identifier.of(Puzzle.MOD_ID, "null_stick.png"),
+                Identifier.of(PuzzleID, "null_stick.png"),
                 Identifier.of("base", "axe_stone.png"),
                 Identifier.of("base", "pickaxe_stone.png"),
                 Identifier.of("base", "shovel_stone.png"),
                 Identifier.of("base", "medkit.png"),
-                Identifier.of(Puzzle.MOD_ID, "block_wrench.png"),
-                Identifier.of(Puzzle.MOD_ID, "checker_board.png"),
-                Identifier.of(Puzzle.MOD_ID, "checker_board1.png"),
-                Identifier.of(Puzzle.MOD_ID, "checker_board2.png")
+                Identifier.of(PuzzleID, "block_wrench.png"),
+                Identifier.of(PuzzleID, "checker_board.png"),
+                Identifier.of(PuzzleID, "checker_board1.png"),
+                Identifier.of(PuzzleID, "checker_board2.png")
         );
 
         addTexture(
                 IModItem.MODEL_2D_ITEM,
-                Identifier.of(Puzzle.MOD_ID, "null_stick.png"),
+                Identifier.of(PuzzleID, "null_stick.png"),
                 Identifier.of("base", "axe_stone.png"),
                 Identifier.of("base", "pickaxe_stone.png"),
                 Identifier.of("base", "shovel_stone.png"),
                 Identifier.of("base", "medkit.png"),
-                Identifier.of(Puzzle.MOD_ID, "block_wrench.png"),
-                Identifier.of(Puzzle.MOD_ID, "checker_board.png"),
-                Identifier.of(Puzzle.MOD_ID, "checker_board1.png"),
-                Identifier.of(Puzzle.MOD_ID, "checker_board2.png")
+                Identifier.of(PuzzleID, "block_wrench.png"),
+                Identifier.of(PuzzleID, "checker_board.png"),
+                Identifier.of(PuzzleID, "checker_board1.png"),
+                Identifier.of(PuzzleID, "checker_board2.png")
         );
 
         texture_count = ((ListDataAttribute) getTagManifest().getTag("textures").attribute).getValue().size() - 1;

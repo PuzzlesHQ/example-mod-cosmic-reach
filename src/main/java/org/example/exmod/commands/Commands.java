@@ -23,7 +23,7 @@ public class Commands {
                                             int z = IntegerArgumentType.getInteger(context, "z");
                                             String blockState = StringArgumentType.getString(context, "blockstate");
 
-                                            BlockUtil.setBlockAt(InGame.getLocalPlayer().getZone(InGame.world), BlockState.getInstance(blockState), x, y, z);
+                                            BlockUtil.setBlockAt(InGame.getLocalPlayer().getZone(InGame.getWorld()), BlockState.getInstance(blockState), x, y, z);
                                             return 0;
                                         })
                                 )

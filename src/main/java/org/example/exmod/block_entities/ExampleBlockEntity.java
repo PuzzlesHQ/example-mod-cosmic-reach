@@ -1,6 +1,5 @@
 package org.example.exmod.block_entities;
 
-import com.badlogic.gdx.graphics.Camera;
 import com.github.puzzle.game.util.BlockUtil;
 import finalforeach.cosmicreach.blockentities.BlockEntity;
 import finalforeach.cosmicreach.blockentities.BlockEntityCreator;

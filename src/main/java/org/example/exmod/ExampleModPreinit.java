@@ -1,6 +1,7 @@
 package org.example.exmod;
 
-import com.github.puzzle.loader.entrypoint.interfaces.PreModInitializer;
+
+import com.github.puzzle.core.loader.provider.mod.entrypoint.impls.PreModInitializer;
 
 public class ExampleModPreinit implements PreModInitializer {
 

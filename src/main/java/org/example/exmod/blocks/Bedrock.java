@@ -1,18 +1,13 @@
 package org.example.exmod.blocks;
 
 import com.github.puzzle.game.block.IModBlock;
-import com.github.puzzle.game.generators.BlockEventGenerator;
-import com.github.puzzle.game.generators.BlockGenerator;
-import com.github.puzzle.game.generators.BlockModelGenerator;
-import finalforeach.cosmicreach.blockentities.BlockEntity;
-import finalforeach.cosmicreach.blocks.BlockPosition;
-import finalforeach.cosmicreach.blocks.BlockState;
-import finalforeach.cosmicreach.entities.player.Player;
+import com.github.puzzle.game.block.generators.BlockEventGenerator;
+import com.github.puzzle.game.block.generators.BlockGenerator;
+import finalforeach.cosmicreach.blockevents.BlockEventArgs;
 import finalforeach.cosmicreach.items.Item;
 import finalforeach.cosmicreach.items.ItemSlot;
 import finalforeach.cosmicreach.ui.UI;
 import finalforeach.cosmicreach.util.Identifier;
-import finalforeach.cosmicreach.world.Zone;
 import org.example.exmod.Constants;
 import org.example.exmod.block_entities.ExampleBlockEntity;
 
@@ -31,7 +26,7 @@ public class Bedrock implements IModBlock {
     }
 
     @Override
-    public void onBreak(Zone zone, Player player, BlockState blockState, BlockPosition position) {
+    public void onBreak(BlockEventArgs args) {
         ItemSlot slot = UI.hotbar.getSelectedSlot();
         if(slot == null) return;
         if(slot.itemStack != null) {
@@ -39,7 +34,7 @@ public class Bedrock implements IModBlock {
             String itemId = selected.getID();
             if(itemId.startsWith(BLOCK_ID.toString())) {
                 // make the block breakable when the player holds bedrock
-                IModBlock.super.onBreak(zone, player, blockState, position);
+                IModBlock.super.onBreak(args);
             }
         }
         // make the block unbreakable, by omitting the super call here
@@ -48,17 +43,9 @@ public class Bedrock implements IModBlock {
     @Override
     public BlockGenerator getBlockGenerator() {
         BlockGenerator generator = new BlockGenerator(BLOCK_ID);
-        generator.createBlockState("default", "model", true, "events", true);
+        generator.createBlockState("default", "model", true, Identifier.of("puzzle-loader", "base_block_model_generator"), "events", true);
         generator.addBlockEntity(ExampleBlockEntity.id.toString(), Map.of());
         return generator;
-    }
-
-    @Override
-    public List<BlockModelGenerator> getBlockModelGenerators(Identifier blockId) {
-        BlockModelGenerator generator = new BlockModelGenerator(blockId, "model");
-        generator.createTexture("all", ALL_TEXTURE);
-        generator.createCuboid(0, 0, 0, 16, 16, 16, "all");
-        return List.of(generator);
     }
 
     @Override

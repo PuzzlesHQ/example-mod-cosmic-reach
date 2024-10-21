@@ -1,10 +1,10 @@
 package org.example.exmod;
 
-import com.github.puzzle.core.PuzzleRegistries;
+import com.github.puzzle.core.loader.provider.mod.entrypoint.impls.ModInitializer;
 import com.github.puzzle.core.localization.ILanguageFile;
 import com.github.puzzle.core.localization.LanguageManager;
 import com.github.puzzle.core.localization.files.LanguageFileVersion1;
-import com.github.puzzle.core.resources.PuzzleGameAssetLoader;
+import com.github.puzzle.game.PuzzleRegistries;
 import com.github.puzzle.game.block.DataModBlock;
 import com.github.puzzle.game.events.OnPreLoadAssetsEvent;
 import com.github.puzzle.game.events.OnRegisterBlockEvent;
@@ -12,7 +12,7 @@ import com.github.puzzle.game.events.OnRegisterZoneGenerators;
 import com.github.puzzle.game.items.IModItem;
 import com.github.puzzle.game.items.impl.BasicItem;
 import com.github.puzzle.game.items.impl.BasicTool;
-import com.github.puzzle.loader.entrypoint.interfaces.ModInitializer;
+import com.github.puzzle.game.resources.PuzzleGameAssetLoader;
 import finalforeach.cosmicreach.util.Identifier;
 import org.example.exmod.block_entities.ExampleBlockEntity;
 import org.example.exmod.blocks.Bedrock;
@@ -29,6 +29,7 @@ public class ExampleMod implements ModInitializer {
 
     @Override
     public void onInit() {
+
         PuzzleRegistries.EVENT_BUS.register(this);
 
         Constants.LOGGER.info("Hello From INIT");
