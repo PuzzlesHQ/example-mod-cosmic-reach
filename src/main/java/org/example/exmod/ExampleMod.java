@@ -13,29 +13,28 @@ import com.github.puzzle.game.items.IModItem;
 import com.github.puzzle.game.items.impl.BasicItem;
 import com.github.puzzle.game.items.impl.BasicTool;
 import com.github.puzzle.game.resources.PuzzleGameAssetLoader;
+import finalforeach.cosmicreach.networking.GamePacket;
 import finalforeach.cosmicreach.util.Identifier;
+import meteordevelopment.orbit.EventHandler;
 import org.example.exmod.block_entities.ExampleBlockEntity;
 import org.example.exmod.blocks.Bedrock;
-import org.example.exmod.commands.Commands;
 import org.example.exmod.items.ExampleCyclingItem;
 import org.example.exmod.items.ExamplePickaxe;
+import org.example.exmod.networking.PlayerHeldItem;
 import org.example.exmod.worldgen.ExampleZoneGenerator;
-import org.greenrobot.eventbus.Subscribe;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class ExampleMod implements ModInitializer {
-
     @Override
     public void onInit() {
 
-        PuzzleRegistries.EVENT_BUS.register(this);
+        PuzzleRegistries.EVENT_BUS.subscribe(this);
 
         Constants.LOGGER.info("Hello From INIT");
         ExampleBlockEntity.register();
-
-        Commands.register();
+        GamePacket.registerPacket(PlayerHeldItem.class);
 
         IModItem.registerItem(new ExamplePickaxe());
         IModItem.registerItem(new ExampleCyclingItem());
@@ -43,18 +42,18 @@ public class ExampleMod implements ModInitializer {
         IModItem.registerItem(new BasicTool(Identifier.of(Constants.MOD_ID, "stone_sword")));
     }
 
-    @Subscribe
+    @EventHandler
     public void onEvent(OnRegisterBlockEvent event) {
         event.registerBlock(() -> new DataModBlock(Identifier.of(Constants.MOD_ID, "diamond_block.json")));
         event.registerBlock(Bedrock::new);
     }
 
-    @Subscribe
+    @EventHandler
     public void onEvent(OnRegisterZoneGenerators event) {
         event.registerGenerator(ExampleZoneGenerator::new);
     }
 
-    @Subscribe
+    @EventHandler
     public void onEvent(OnPreLoadAssetsEvent event) {
         ILanguageFile lang = null;
         try {
@@ -66,5 +65,4 @@ public class ExampleMod implements ModInitializer {
         }
         LanguageManager.registerLanguageFile(lang);
     }
-
 }

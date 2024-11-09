@@ -7,6 +7,7 @@ import finalforeach.cosmicreach.blocks.Block;
 import finalforeach.cosmicreach.blocks.BlockPosition;
 import finalforeach.cosmicreach.blocks.BlockState;
 import finalforeach.cosmicreach.util.Identifier;
+import finalforeach.cosmicreach.world.BlockSetter;
 import finalforeach.cosmicreach.world.Zone;
 import org.example.exmod.Constants;
 
@@ -32,8 +33,8 @@ public class ExampleBlockEntity extends BlockEntity {
 
     @Override
     public void onCreate(BlockState blockState) {
-        setTicking(true);
         super.onCreate(blockState);
+        setTicking(true);
     }
 
     @Override
@@ -52,8 +53,7 @@ public class ExampleBlockEntity extends BlockEntity {
         BlockPosition above = BlockUtil.getBlockPosAtVec(zone, x, y, z).getOffsetBlockPos(zone, 0, 1, 0);
         BlockState current = above.getBlockState();
         if(current.getBlock() == Block.AIR) {
-            above.setBlockState(Block.GRASS.getDefaultBlockState());
-            above.flagTouchingChunksForRemeshing(zone, false);
+            BlockSetter.get().replaceBlock(zone, Block.GRASS.getDefaultBlockState(), above);
         }
     }
 

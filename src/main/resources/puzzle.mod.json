@@ -1,4 +1,5 @@
 {
+  "formatVersion": 1,
   "id": "${mod_id}",
   "version": "${mod_version}",
   "name": "${mod_name}",
@@ -10,19 +11,22 @@
     "icon": "example-mod:icons/icon.png"
   },
   "entrypoints": {
-    "preInit": [
-      "org.example.exmod.ExampleModPreinit"
+    "client_init": [
+      "org.example.exmod.ClientInitializer"
     ],
     "init": [
       "org.example.exmod.ExampleMod"
+    ],
+    "preInit": [
+      "org.example.exmod.ExampleModPreinit"
     ]
   },
   "mixins": [
     "example.mixins.json"
   ],
-  "dependencies": {
-    "cosmic-reach": ">=0.3.1",
-    "puzzle-loader": ">=2.0.0"
+  "depends": {
+    "cosmic-reach": ">=0.3.6",
+    "puzzle-loader": ">=2.0.9"
   },
   "accessManipulator": "example_mod.manipulator"
 }

@@ -1,17 +1,25 @@
 plugins {
-    id 'java'
-    id 'jigsaw'
-    id 'maven-publish'
-    id 'com.github.johnrengelman.shadow'
+    id "java"
+    id "jigsaw"
+    id "com.github.johnrengelman.shadow"
 }
 
 loom {
     splitEnvironmentSourceSets()
+    mods {
+        "cosmicsigns" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+    accessWidenerPath = file("src/main/resources/example_mod.manipulator")
 }
 
 repositories {
     mavenCentral()
-    maven { url = "https://jitpack.io" }
+    maven {
+        url "https://jitpack.io"
+    }
 }
 
 dependencies {
