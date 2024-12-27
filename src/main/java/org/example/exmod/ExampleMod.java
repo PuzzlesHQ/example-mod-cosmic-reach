@@ -18,6 +18,7 @@ import finalforeach.cosmicreach.util.Identifier;
 import meteordevelopment.orbit.EventHandler;
 import org.example.exmod.block_entities.ExampleBlockEntity;
 import org.example.exmod.blocks.Bedrock;
+import org.example.exmod.commands.Commands;
 import org.example.exmod.items.ExampleCyclingItem;
 import org.example.exmod.items.ExamplePickaxe;
 import org.example.exmod.networking.PlayerHeldItem;
@@ -33,6 +34,7 @@ public class ExampleMod implements ModInitializer {
         PuzzleRegistries.EVENT_BUS.subscribe(this);
 
         Constants.LOGGER.info("Hello From INIT");
+        Commands.register();
         ExampleBlockEntity.register();
         GamePacket.registerPacket(PlayerHeldItem.class);
 
