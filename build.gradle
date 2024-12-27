@@ -7,7 +7,7 @@ plugins {
 loom {
     splitEnvironmentSourceSets()
     mods {
-        "cosmicsigns" {
+        "example-mod" {
             sourceSet sourceSets.main
             sourceSet sourceSets.client
         }
