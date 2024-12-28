@@ -28,5 +28,7 @@
     "cosmic-reach": ">=0.3.6",
     "puzzle-loader": ">=2.0.9"
   },
-  "accessManipulator": "example_mod.manipulator"
+  "accessTransformers": [
+    "example_mod.manipulator"
+  ]
 }
