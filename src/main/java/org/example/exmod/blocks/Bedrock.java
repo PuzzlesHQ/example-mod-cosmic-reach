@@ -50,7 +50,9 @@ public class Bedrock implements IModBlock {
     @Override
     public BlockGenerator getBlockGenerator() {
         BlockGenerator generator = new BlockGenerator(BLOCK_ID);
-        generator.createBlockState("default", "model", true, "base_block_model_generator", true);
+        BlockGenerator.State state = generator.createBlockState("default", "model", true, "base_block_model_generator", true);
+        /* Adds Name to block state */ state.langKey = "Bedrock";
+
         generator.addBlockEntity(ExampleBlockEntity.id.toString(), Map.of());
         return generator;
     }
