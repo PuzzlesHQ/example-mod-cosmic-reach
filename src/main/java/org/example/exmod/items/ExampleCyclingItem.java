@@ -4,6 +4,7 @@ import com.github.puzzle.game.items.IModItem;
 import com.github.puzzle.game.items.ITickingItem;
 import com.github.puzzle.game.items.data.DataTagManifest;
 import com.github.puzzle.game.items.data.attributes.ListDataAttribute;
+import finalforeach.cosmicreach.blocks.BlockPosition;
 import finalforeach.cosmicreach.entities.ItemEntity;
 import finalforeach.cosmicreach.entities.player.Player;
 import finalforeach.cosmicreach.items.ItemSlot;
@@ -66,7 +67,7 @@ public class ExampleCyclingItem implements IModItem, ITickingItem {
     }
 
     @Override
-    public void use(ItemSlot slot, Player player) {
+    public void use(ItemSlot slot, Player player, BlockPosition targetPlaceBlockPos, BlockPosition targetBreakBlockPos) {
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
             try {
                 Desktop.getDesktop().browse(new URI("https://discord.gg/VeEnVHwRXN"));

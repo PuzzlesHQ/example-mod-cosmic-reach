@@ -46,8 +46,9 @@ public class ExampleMod implements ModInitializer {
 
     @EventHandler
     public void onEvent(OnRegisterBlockEvent event) {
-        event.registerBlock(() -> new DataModBlock(Identifier.of(Constants.MOD_ID, "diamond_block.json")));
-        event.registerBlock(Bedrock::new);
+        //TODO update this
+        //event.registerBlock(() -> new DataModBlock(Identifier.of(Constants.MOD_ID, "diamond_block.json")));
+        //event.registerBlock(Bedrock::new);
     }
 
     @EventHandler

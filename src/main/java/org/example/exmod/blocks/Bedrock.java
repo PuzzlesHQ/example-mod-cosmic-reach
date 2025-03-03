@@ -33,11 +33,11 @@ public class Bedrock implements IModBlock {
     @Override
     public void onBreak(BlockEventArgs args) {
         IModBlock.super.onPlace(args);
-        ItemSlot slot = ((PlayerExtension) args.srcIdentity.getPlayer()).getHeldItem();
+        ItemSlot slot = ((PlayerExtension) args.getSrcIdentity().getPlayer()).getHeldItem();
 
         if(slot == null) return;
-        if(slot.itemStack != null) {
-            Item selected = slot.itemStack.getItem();
+        if(slot.getItemStack() != null) {
+            Item selected = slot.getItemStack().getItem();
             String itemId = selected.getID();
             if(itemId.startsWith(BLOCK_ID.toString())) {
                 // make the block breakable when the player holds bedrock
