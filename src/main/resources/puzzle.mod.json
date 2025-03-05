@@ -22,7 +22,11 @@
     ]
   },
   "mixins": [
-    "example.mixins.json"
+    "example.mixins.json",
+    {
+      "config": "example.client.mixins.json",
+      "environment": "client"
+    }
   ],
   "depends": {
     "cosmic-reach": ">=0.3.6",
