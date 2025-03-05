@@ -4,7 +4,7 @@
   {
     "default":
     {
-      "modelName": "example-mod:diamond_block",
+      "modelName": "example-mod:models/blocks/diamond_block.json",
       "isOpaque":true,
       "isTransparent":false,
       "lightAttenuation":15,

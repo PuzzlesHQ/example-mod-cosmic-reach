@@ -1,11 +1,11 @@
 {
-  "parent": "cube",
+  "parent": "base:models/blocks/cube.json",
 
   "textures":
   {
     "all":
     {
-      "fileName": "example-mod:diamond_block"
+      "fileName": "example-mod:textures/blocks/diamond_block.png"
     }
   }
 
