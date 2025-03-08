@@ -23,7 +23,7 @@ repositories {
 }
 
 dependencies {
-    cosmicReach("finalforeach:cosmicreach:${cosmic_reach_version}")
+    cosmicReach("finalforeach:cosmicreach-alpha:${cosmic_reach_version}")
 }
 
 processResources {
