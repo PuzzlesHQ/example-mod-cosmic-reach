@@ -24,6 +24,7 @@ repositories {
 
 dependencies {
     cosmicReach("finalforeach:cosmicreach-alpha:${cosmic_reach_version}")
+    implementation("com.github.PuzzlesHQ:CosmicAPI:${cosmic_api_version}")
 }
 
 processResources {

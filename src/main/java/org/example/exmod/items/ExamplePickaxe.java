@@ -1,19 +1,16 @@
 package org.example.exmod.items;
 
-import com.github.puzzle.game.items.IModItem;
-import com.github.puzzle.game.items.data.DataTagManifest;
 import finalforeach.cosmicreach.blocks.BlockState;
 import finalforeach.cosmicreach.items.ItemStack;
 import finalforeach.cosmicreach.util.Identifier;
+import io.github.puzzle.cosmic.item.AbstractCosmicItem;
 import org.example.exmod.Constants;
 
-public class ExamplePickaxe implements IModItem {
-
-    DataTagManifest tagManifest = new DataTagManifest();
-    Identifier id = Identifier.of(Constants.MOD_ID, "example_pickaxe");
+public class ExamplePickaxe extends AbstractCosmicItem {
 
     public ExamplePickaxe() {
-        addTexture(IModItem.MODEL_2_5D_ITEM, Identifier.of(Constants.MOD_ID, "example_pickaxe.png"));
+        super(Identifier.of(Constants.MOD_ID, "example_pickaxe"));
+        addTexture(ItemModelType.ITEM_MODEL_3D, Identifier.of(Constants.MOD_ID, "example_pickaxe.png"));
     }
 
     @Override
@@ -22,7 +19,7 @@ public class ExamplePickaxe implements IModItem {
     }
 
     @Override
-    public boolean isTool() {
+    public boolean pIsTool() {
         return true;
     }
 
@@ -50,20 +47,5 @@ public class ExamplePickaxe implements IModItem {
     @Override
     public String getName() {
         return "Example Pickaxe";
-    }
-
-    @Override
-    public Identifier getIdentifier() {
-        return id;
-    }
-
-    @Override
-    public DataTagManifest getTagManifest() {
-        return tagManifest;
-    }
-
-    @Override
-    public boolean isCatalogHidden() {
-        return false;
     }
 }

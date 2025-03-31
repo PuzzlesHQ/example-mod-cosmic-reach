@@ -21,11 +21,9 @@ public class MainMenuMixin {
         Constants.LOGGER.info("THE END OF THE MAIN MENU's create()");
     }
 
-    @Redirect(method = "create", at = @At(value = "INVOKE", target = "Lfinalforeach/cosmicreach/lang/Lang;get(Ljava/lang/String;)Ljava/lang/String;", ordinal = 0))
+    @Redirect(method = "create", at = @At(value = "INVOKE", target = "Lfinalforeach/cosmicreach/lang/Lang;get(Ljava/lang/String;)Ljava/lang/String;", ordinal = 1))
     private String setText(String key) {
         return "Better Button?";
     }
-
-
 
 }
