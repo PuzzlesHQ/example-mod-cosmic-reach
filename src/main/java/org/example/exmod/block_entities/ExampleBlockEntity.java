@@ -9,26 +9,18 @@ import finalforeach.cosmicreach.blocks.BlockState;
 import finalforeach.cosmicreach.util.Identifier;
 import finalforeach.cosmicreach.world.BlockSetter;
 import finalforeach.cosmicreach.world.Zone;
+import io.github.puzzle.cosmic.BlockEntity.AbstractCosmicBlockEntity;
 import org.example.exmod.Constants;
 
-public class ExampleBlockEntity extends BlockEntity {
-
-    public static Identifier id = Identifier.of(Constants.MOD_ID, "example_entity");
+public class ExampleBlockEntity extends AbstractCosmicBlockEntity {
 
     public static void register() {
+        id = Identifier.of(Constants.MOD_ID, "example_entity");
         BlockEntityCreator.registerBlockEntityCreator(id.toString(), (block, zone, x, y, z) -> new ExampleBlockEntity(zone, x, y, z));
     }
 
-    Zone zone;
-    int x, y, z;
-
     public ExampleBlockEntity(Zone zone, int x, int y, int z) {
         super(zone, x, y, z);
-
-        this.zone = zone;
-        this.x = x;
-        this.y = y;
-        this.z = z;
     }
 
     @Override

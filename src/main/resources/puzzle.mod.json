@@ -34,7 +34,7 @@
   "depends": {
     "cosmic-reach": ">=0.4.5",
     "puzzle-loader": ">=3.0.2",
-    "cosmic-api": ">=1.2.0-0.4.5"
+    "cosmic-api": ">=1.2.1"
   },
   "accessTransformers": [
     "example_mod.manipulator"
