@@ -82,15 +82,15 @@ public class ExampleCyclingItem extends AbstractCosmicItem implements ITickingIt
 
     @Override
     public void tickStack(float fixedUpdateTimeStep, IItemStack itemStack, boolean isBeingHeld) {
-        int currentEntry = getCurrentEntry(itemStack);
+        int currentEntry = getCurrentTexture(itemStack);
         currentEntry = currentEntry >= texture_count ? 0 : currentEntry + 1;
-        setCurrentEntry(itemStack, currentEntry);
+        setCurrentTexture(itemStack, currentEntry);
     }
 
     @Override
     public void tickEntity(IZone zone, double deltaTime, IEntity entity, IItemStack itemStack) {
-        int currentEntry = getCurrentEntry(itemStack);
+        int currentEntry = getCurrentTexture(itemStack);
         currentEntry = currentEntry >= texture_count ? 0 : currentEntry + 1;
-        setCurrentEntry(itemStack, currentEntry);
+        setCurrentTexture(itemStack, currentEntry);
     }
 }

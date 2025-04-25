@@ -1,0 +1,11 @@
+{
+    "stringId": "example-mod:block_entities",
+    "blockEntityId": "example-mod:example_entity",
+    "blockStates":
+    {
+        "default":
+        {
+            "modelName": "base:models/blocks/model_cheese.json"
+        }
+    }
+}

@@ -1,7 +1,7 @@
 package org.example.exmod.mixins;
 
 import finalforeach.cosmicreach.gamestates.InGame;
-import finalforeach.cosmicreach.items.Hotbar;
+import finalforeach.cosmicreach.ui.Hotbar;
 import finalforeach.cosmicreach.items.ISlotContainer;
 import finalforeach.cosmicreach.networking.client.ClientNetworkManager;
 import finalforeach.cosmicreach.ui.UI;

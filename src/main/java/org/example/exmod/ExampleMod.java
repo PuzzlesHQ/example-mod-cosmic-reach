@@ -9,6 +9,8 @@ import com.github.puzzle.game.PuzzleRegistries;
 import com.github.puzzle.game.events.OnPreLoadAssetsEvent;
 import com.github.puzzle.game.events.OnRegisterZoneGenerators;
 import com.github.puzzle.game.resources.PuzzleGameAssetLoader;
+import finalforeach.cosmicreach.GameAssetLoader;
+import finalforeach.cosmicreach.blocks.Block;
 import finalforeach.cosmicreach.networking.GamePacket;
 import finalforeach.cosmicreach.util.Identifier;
 import io.github.puzzle.cosmic.item.AbstractCosmicItem;
@@ -26,6 +28,8 @@ import org.example.exmod.worldgen.ExampleZoneGenerator;
 import java.io.IOException;
 import java.util.Objects;
 
+import static org.example.exmod.Constants.MOD_ID;
+
 public class ExampleMod implements ModInitializer {
     @Override
     public void onInit() {
@@ -36,6 +40,9 @@ public class ExampleMod implements ModInitializer {
         Commands.register();
         ExampleBlockEntity.register();
         GamePacket.registerPacket(PlayerHeldItem.class);
+
+        Block.loadBlock(GameAssetLoader.loadAsset(Identifier.of(MOD_ID, "blocks/diamond_block.json")));
+        Block.loadBlock(GameAssetLoader.loadAsset(Identifier.of(MOD_ID, "blocks/block_entities.json")));
     }
 
     @EventHandler
@@ -48,7 +55,7 @@ public class ExampleMod implements ModInitializer {
         ILanguageFile lang = null;
         try {
             lang = LanguageFileVersion1.loadLanguageFile(
-                    Objects.requireNonNull(PuzzleGameAssetLoader.locateAsset(Identifier.of(Constants.MOD_ID, "languages/en-US.json")))
+                    Objects.requireNonNull(PuzzleGameAssetLoader.locateAsset(Identifier.of(MOD_ID, "languages/en-US.json")))
             );
         } catch (IOException e) {
             throw new RuntimeException(e);
