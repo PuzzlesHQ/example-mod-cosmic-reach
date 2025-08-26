@@ -1,42 +1,41 @@
 {
-  "formatVersion": 1,
+  "formatVersion": 3,
+  "display-name": "${mod_name}",
   "id": "${mod_id}",
   "version": "${mod_version}",
-  "name": "${mod_name}",
-  "description": "${mod_desc}",
-  "authors": [
-    "YOU :D"
-  ],
+  "description": "${mod_desc}.",
+  "authors": [ "YOU :D" ],
   "meta": {
-    "icon": "example-mod:icons/icon.png"
+    "icon": "${mod_id}:icons/icon.png"
   },
   "entrypoints": {
     "postInit": [
       "org.example.exmod.ExampleModPostinit"
-    ],
-    "client_init": [
-      "org.example.exmod.ClientInitializer"
     ],
     "init": [
       "org.example.exmod.ExampleMod"
     ],
     "preInit": [
       "org.example.exmod.ExampleModPreinit"
+    ],
+    "client-init": [
+      "org.example.exmod.ClientInitializer"
     ]
   },
+  "depends": {
+    "cosmic-reach": ">=${cosmic_reach}",
+    "puzzle-loader-cosmic": ">=${puzzle_loader_cosmic}",
+    "puzzle-loader-core": ">=${puzzle_loader_core}",
+    "cosmic-api": ">=${cosmic_api}"
+  },
   "mixins": [
-    "example.mixins.json",
+    "${mod_id}.mixins.json",
     {
-      "config": "example.client.mixins.json",
+      "config": "${mod_id}.client.mixins.json",
       "environment": "client"
     }
   ],
-  "depends": {
-    "cosmic-reach": ">=0.4.5",
-    "puzzle-loader": ">=3.0.2",
-    "cosmic-api": ">=1.2.1"
-  },
-  "accessTransformers": [
-    "example_mod.manipulator"
+  "access-writers": [
+    "${mod_id}.manipulator"
   ]
 }

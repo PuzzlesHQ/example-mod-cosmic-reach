@@ -1,11 +1,12 @@
 package org.example.exmod.items;
 
+import finalforeach.cosmicreach.blocks.BlockPosition;
+import finalforeach.cosmicreach.entities.player.Player;
+import finalforeach.cosmicreach.items.ItemSlot;
 import finalforeach.cosmicreach.util.Identifier;
 import io.github.puzzle.cosmic.CosmicConstants;
-import io.github.puzzle.cosmic.api.block.IBlockPosition;
 import io.github.puzzle.cosmic.api.entity.IEntity;
-import io.github.puzzle.cosmic.api.entity.player.IPlayer;
-import io.github.puzzle.cosmic.api.item.IItemSlot;
+import io.github.puzzle.cosmic.api.item.IItem;
 import io.github.puzzle.cosmic.api.item.IItemStack;
 import io.github.puzzle.cosmic.api.item.ITickingItem;
 import io.github.puzzle.cosmic.api.world.IZone;
@@ -19,7 +20,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-public class ExampleCyclingItem extends AbstractCosmicItem implements ITickingItem {
+public class ExampleCyclingItem extends AbstractCosmicItem implements ITickingItem, IItem {
 
     static final String CosmicAPIID = CosmicConstants.MOD_ID;
 
@@ -31,9 +32,9 @@ public class ExampleCyclingItem extends AbstractCosmicItem implements ITickingIt
         addTexture(
                 ItemModelType.ITEM_MODEL_3D,
                 Identifier.of(CosmicAPIID, "null_stick.png"),
-                Identifier.of("base", "axe_stone.png"),
-                Identifier.of("base", "pickaxe_stone.png"),
-                Identifier.of("base", "shovel_stone.png"),
+                Identifier.of("base", "tools/axe_stone.png"),
+                Identifier.of("base", "tools/pickaxe_stone.png"),
+                Identifier.of("base", "tools/shovel_stone.png"),
                 Identifier.of("base", "medkit.png"),
                 Identifier.of(CosmicAPIID, "block_wrench.png"),
                 Identifier.of(CosmicAPIID, "checker_board.png"),
@@ -44,9 +45,9 @@ public class ExampleCyclingItem extends AbstractCosmicItem implements ITickingIt
         addTexture(
                 ItemModelType.ITEM_MODEL_2D,
                 Identifier.of(CosmicAPIID, "null_stick.png"),
-                Identifier.of("base", "axe_stone.png"),
-                Identifier.of("base", "pickaxe_stone.png"),
-                Identifier.of("base", "shovel_stone.png"),
+                Identifier.of("base", "tools/axe_stone.png"),
+                Identifier.of("base", "tools/pickaxe_stone.png"),
+                Identifier.of("base", "tools/shovel_stone.png"),
                 Identifier.of("base", "medkit.png"),
                 Identifier.of(CosmicAPIID, "block_wrench.png"),
                 Identifier.of(CosmicAPIID, "checker_board.png"),
@@ -54,11 +55,11 @@ public class ExampleCyclingItem extends AbstractCosmicItem implements ITickingIt
                 Identifier.of(CosmicAPIID, "checker_board2.png")
         );
 
-        texture_count = pGetPointManifest().get(ItemDataPointSpecs.TEXTURE_DICT).getValue().size() - 1;
+        texture_count = getPointManifest().get(ItemDataPointSpecs.TEXTURE_DICT).getValue().size() - 1;
     }
 
     @Override
-    public boolean pUse(APISide side, IItemSlot itemSlot, IPlayer player, IBlockPosition targetPlaceBlockPos, IBlockPosition targetBreakBlockPos, boolean isLeftClick) {
+    public boolean use(APISide side, ItemSlot itemSlot, Player player, BlockPosition targetPlaceBlockPos, BlockPosition targetBreakBlockPos, boolean isLeftClick) {
         if ((side == APISide.REMOTE_CLIENT || side == APISide.SINGLE_PLAYER_CLIENT) && Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
             try {
                 Desktop.getDesktop().browse(new URI("https://discord.gg/XeVud4RC9U"));
@@ -71,7 +72,7 @@ public class ExampleCyclingItem extends AbstractCosmicItem implements ITickingIt
     }
 
     @Override
-    public boolean pIsTool() {
+    public boolean isTool() {
         return true;
     }
 

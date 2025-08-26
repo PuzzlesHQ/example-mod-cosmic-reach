@@ -1,12 +1,11 @@
 package org.example.exmod;
 
-import com.github.puzzle.core.loader.launch.provider.mod.entrypoint.impls.ClientModInitializer;
+import dev.puzzleshq.puzzleloader.cosmic.core.modInitialises.ClientModInit;
 
-public class ClientInitializer implements ClientModInitializer {
+public class ClientInitializer implements ClientModInit {
 
     @Override
-    public void onInit() {
-        Constants.LOGGER.info("Hello From INIT");
+    public void onClientInit() {
+        Constants.LOGGER.info("Hello From Client INIT");
     }
-
 }
