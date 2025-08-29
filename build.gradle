@@ -33,7 +33,7 @@ processResources {
 
     String cosmic_api_version_clean = cosmic_api_version.split("-")[0]
 
-    // Left item is the name in the target, right is the varuable name
+    // Left item is the name in the target, right is the variable name
     def replaceProperties = [
             "mod_version"     : version,
             "mod_desc"        : desc,
