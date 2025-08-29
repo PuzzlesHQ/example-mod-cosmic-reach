@@ -7,12 +7,12 @@ plugins {
 loom {
     splitEnvironmentSourceSets()
     mods {
-        "example-mod" {
+        "${id}" {
             sourceSet sourceSets.main
             sourceSet sourceSets.client
         }
     }
-    accessWidenerPath = file("src/main/resources/example_mod.manipulator")
+    accessWidenerPath = file("src/main/resources/${id}.manipulator")
 }
 
 repositories {
