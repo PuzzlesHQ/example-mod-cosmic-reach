@@ -40,6 +40,7 @@ processResources {
             "mod_name"        : project.name,
             "mod_id"          : id,
             "cosmic_reach"    : cosmic_reach_version,
+            "cosmic_reach_minimum"    : cosmic_reach_minimum_version,
             "cosmic_api"      : cosmic_api_version_clean,
             "puzzle_loader_cosmic"    : puzzle_cosmic_version,
             "puzzle_loader_core"      : puzzle_core_version

@@ -23,7 +23,7 @@
     ]
   },
   "depends": {
-    "cosmic-reach": ">=${cosmic_reach}",
+    "cosmic-reach": ">=${cosmic_reach_minimum}",
     "puzzle-loader-cosmic": ">=${puzzle_loader_cosmic}",
     "puzzle-loader-core": ">=${puzzle_loader_core}",
     "cosmic-api": ">=${cosmic_api}"
