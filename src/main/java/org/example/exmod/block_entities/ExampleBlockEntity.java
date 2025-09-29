@@ -1,6 +1,6 @@
 package org.example.exmod.block_entities;
 
-import finalforeach.cosmicreach.blockentities.BlockEntityCreator;
+import finalforeach.cosmicreach.blocks.blockentities.BlockEntityCreator;
 import finalforeach.cosmicreach.blocks.Block;
 import finalforeach.cosmicreach.blocks.BlockPosition;
 import finalforeach.cosmicreach.blocks.BlockState;

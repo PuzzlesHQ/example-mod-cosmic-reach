@@ -1,6 +1,7 @@
 package org.example.exmod;
 
-import dev.puzzleshq.puzzleloader.cosmic.core.modInitialises.ClientModInit;
+
+import dev.puzzleshq.puzzleloader.loader.mod.entrypoint.client.ClientModInit;
 
 public class ClientInitializer implements ClientModInit {
 

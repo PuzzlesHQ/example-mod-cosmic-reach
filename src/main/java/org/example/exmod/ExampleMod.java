@@ -1,9 +1,9 @@
 package org.example.exmod;
 
-import dev.puzzleshq.puzzleloader.cosmic.core.modInitialises.ModInit;
 import dev.puzzleshq.puzzleloader.cosmic.game.GameRegistries;
 import dev.puzzleshq.puzzleloader.cosmic.game.events.command.EventRegisterCommand;
 import dev.puzzleshq.puzzleloader.cosmic.game.events.zone.EventRegisterZoneGenerator;
+import dev.puzzleshq.puzzleloader.loader.mod.entrypoint.common.ModInit;
 import finalforeach.cosmicreach.GameAssetLoader;
 import finalforeach.cosmicreach.blocks.Block;
 import finalforeach.cosmicreach.networking.GamePacket;

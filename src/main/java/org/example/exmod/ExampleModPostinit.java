@@ -1,7 +1,6 @@
 package org.example.exmod;
 
-
-import dev.puzzleshq.puzzleloader.cosmic.core.modInitialises.PostModInit;
+import dev.puzzleshq.puzzleloader.loader.mod.entrypoint.common.PostModInit;
 import finalforeach.cosmicreach.util.Identifier;
 import io.github.puzzle.cosmic.item.AbstractCosmicItem;
 import io.github.puzzle.cosmic.item.BasicItem;

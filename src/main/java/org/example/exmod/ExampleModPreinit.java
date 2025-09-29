@@ -1,7 +1,7 @@
 package org.example.exmod;
 
 
-import dev.puzzleshq.puzzleloader.cosmic.core.modInitialises.PreModInit;
+import dev.puzzleshq.puzzleloader.loader.mod.entrypoint.common.PreModInit;
 
 public class ExampleModPreinit implements PreModInit {
 
