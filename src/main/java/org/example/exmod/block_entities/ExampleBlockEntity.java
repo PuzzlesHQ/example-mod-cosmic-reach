@@ -42,8 +42,8 @@ public class ExampleBlockEntity extends AbstractCosmicBlockEntity {
     public void onTick() {
         BlockPosition above = BlockPosition.ofGlobal(zone, x, y, z).getOffsetBlockPos(zone, 0, 1, 0);
         BlockState current = above.getBlockState();
-        if(current.getBlock() == Block.AIR) {
-            BlockSetter.get().replaceBlock(zone, Block.GRASS.getDefaultBlockState(), above);
+        if(current.getBlock() == Block.getById("base:air")) {
+            BlockSetter.get().replaceBlock(zone, Block.getById("base:grass").getDefaultBlockState(), above);
         }
     }
 
