@@ -26,6 +26,8 @@ dependencies {
     puzzleLoader "dev.puzzleshq:puzzle-loader-core:$puzzle_loader_core_version"
     puzzleLoader "dev.puzzleshq:puzzle-loader-cosmic:$puzzle_loader_cosmic_version"
 
+    cosmicReach("finalforeach:cosmic-reach:${cosmic_reach_version}")
+
     commonImplementation "com.github.PuzzlesHQ:cosmic-api:${cosmic_api_version}"
 }
 
