@@ -1,55 +1,53 @@
 plugins {
-    id "java"
-    id "jigsaw"
-    id 'com.gradleup.shadow'
+    id 'java'
+    id 'jigsaw-cosmic-reach'
 }
 
-loom {
-    splitEnvironmentSourceSets()
-    mods {
-        "${id}" {
-            sourceSet sourceSets.main
-            sourceSet sourceSets.client
-        }
-    }
-    accessWidenerPath = file("src/main/resources/${id}.manipulator")
+group = p_group
+version = p_version
+
+jigsawGame {
+    splitSourceSets()
+}
+
+jigsawAccess {
+    addManipulators(file("$projectDir/src/common/resources/${p_id}.manipulator"))
+}
+
+jigsawInject {
+    setModJson(file("$projectDir/src/common/resources/puzzle.mod.json"))
 }
 
 repositories {
     mavenCentral()
-    maven {
-        url "https://jitpack.io"
-    }
 }
 
 dependencies {
-    cosmicReach("finalforeach:cosmicreach:${cosmic_reach_version}")
-    modImplementation("com.github.PuzzlesHQ:cosmic-api:${cosmic_api_version}")
+    puzzleLoader "dev.puzzleshq:puzzle-loader-core:$puzzle_loader_core_version"
+    puzzleLoader "dev.puzzleshq:puzzle-loader-cosmic:$puzzle_loader_cosmic_version"
+
+    commonImplementation "com.github.PuzzlesHQ:cosmic-api:${cosmic_api_version}"
 }
 
-processResources {
-    // Locations of where to inject the properties
-    def resourceTargets = [ "puzzle.mod.json" ]
+processCommonResources {
+    def projectProperties = [
+            "p_name": p_name,
+            "p_version": ((String)version).contains(".") ? version : "0.0.0",
+            "p_desc": p_desc,
 
-    String cosmic_api_version_clean = cosmic_api_version.split("-")[0]
-
-    // Left item is the name in the target, right is the variable name
-    def replaceProperties = [
-            "mod_version"     : version,
-            "mod_desc"        : desc,
-            "mod_name"        : project.name,
-            "mod_id"          : id,
-            "cosmic_reach"    : cosmic_reach_version,
-            "cosmic_reach_minimum"    : cosmic_reach_minimum_version,
-            "cosmic_api"      : cosmic_api_version_clean,
-            "puzzle_loader_cosmic"    : puzzle_cosmic_version,
-            "puzzle_loader_core"      : puzzle_core_version
+            "p_id": p_id,
+            "p_group": p_group,
+            "p_author": p_author
     ]
 
+    inputs.properties projectProperties
 
-    inputs.properties replaceProperties
-    replaceProperties.put "project", project
-    filesMatching(resourceTargets) {
-        expand replaceProperties
+    filesMatching(["puzzle.mod.json"]) {
+        expand projectProperties
     }
+}
+
+wrapper {
+    gradleVersion = "8.14"
+    distributionType = Wrapper.DistributionType.ALL
 }
