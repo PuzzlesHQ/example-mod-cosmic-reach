@@ -14,9 +14,6 @@ buildscript {
     }
     dependencies {
         classpath("dev.puzzleshq:jigsaw-suite:$puzzle_jigsaw_suite")
-//        classpath("dev.puzzleshq:jigsaw-suite:0.0.0-beta") {
-//            changing = true
-//        }
     }
 }
 

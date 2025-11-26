@@ -34,6 +34,10 @@
     {
       "config": "${p_id}.client.mixins.json",
       "environment": "client"
+    },
+    {
+      "config": "${p_id}.server.mixins.json",
+      "environment": "server"
     }
   ],
 

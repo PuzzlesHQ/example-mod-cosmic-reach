@@ -1,6 +1,5 @@
-package exmod;
+package com.examplemod.exmod;
 
-import com.examplemod.exmod.Constants;
 import dev.puzzleshq.puzzleloader.loader.mod.entrypoint.server.ServerModInit;
 
 public class ServerExampleMod implements ServerModInit {
