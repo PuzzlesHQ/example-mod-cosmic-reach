@@ -19,9 +19,9 @@ public class ExampleZoneGenerator extends ZoneGenerator {
     private final int softMinY = 0;
 
     // Fetches on class instantiation, so will not be null
-    BlockState airBlock = this.getBlockStateInstance("base:air[default]");
-    BlockState stoneBlock = this.getBlockStateInstance("base:stone_basalt[default]");
-    BlockState waterBlock = this.getBlockStateInstance("base:water[default]");
+    BlockState airBlock;
+    BlockState stoneBlock;
+    BlockState waterBlock;
 
     private SimplexNoise noise;
 
@@ -41,6 +41,13 @@ public class ExampleZoneGenerator extends ZoneGenerator {
     public void create() {
         // Create noise generators
         noise = new SimplexNoise(this.seed);
+        loadBlocks();
+    }
+
+    private void loadBlocks(){
+        this.airBlock = this.getBlockStateInstance("base:air[default]");
+        this.stoneBlock = this.getBlockStateInstance("base:stone_basalt[default]");
+        this.waterBlock = this.getBlockStateInstance("base:water[default]");
     }
 
     // Generate a chunk-column of the world at once (easier for the lighting engine this way)
