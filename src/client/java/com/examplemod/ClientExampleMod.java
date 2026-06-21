@@ -1,4 +1,4 @@
-package com.examplemod.exmod;
+package com.examplemod;
 
 
 import dev.puzzleshq.puzzleloader.loader.mod.entrypoint.client.ClientModInit;

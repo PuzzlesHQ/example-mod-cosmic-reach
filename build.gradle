@@ -16,6 +16,7 @@ jigsawAccess {
 
 jigsawInject {
     setModJson(file("$projectDir/src/common/resources/puzzle.mod.json"))
+    addInterfaceInjectors(file("$projectDir/src/common/resources/${p_id}.inject"))
 }
 
 repositories {
@@ -29,10 +30,28 @@ dependencies {
 
     cosmicReach("finalforeach:cosmic-reach:${cosmic_reach_version}")
 
-    commonImplementation "com.github.PuzzlesHQ:cosmic-api:${cosmic_api_version}"
+    commonImplementation "com.github.PuzzlesHQ:cosmic-api:${cosmic_api_version}:merged"
 }
 
 processCommonResources {
+
+    def authors = "\"" + p_author + "\""
+
+    if (p_author.contains(",")) {
+        def items = p_author.split(',')
+        StringBuilder sb = new StringBuilder()
+
+        def isFirst = true
+
+        for (item in items) {
+            if (!isFirst) sb.append(", ")
+            sb.append("\"" + item + "\"")
+            isFirst = false
+        }
+
+        authors = sb.toString()
+    }
+
     def projectProperties = [
             "p_name": p_name,
             "p_version": ((String)version).contains(".") ? version : "0.0.0",
@@ -40,7 +59,7 @@ processCommonResources {
 
             "p_id": p_id,
             "p_group": p_group,
-            "p_author": p_author
+            "p_authors": authors
     ]
 
     inputs.properties projectProperties

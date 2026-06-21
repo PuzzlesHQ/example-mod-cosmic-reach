@@ -1,6 +1,6 @@
-package com.examplemod.exmod.items;
+package com.examplemod.items;
 
-import com.examplemod.exmod.Constants;
+import com.examplemod.Constants;
 import finalforeach.cosmicreach.blocks.BlockPosition;
 import finalforeach.cosmicreach.entities.player.Player;
 import finalforeach.cosmicreach.items.ItemSlot;

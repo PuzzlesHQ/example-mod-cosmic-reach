@@ -1,4 +1,4 @@
-package com.examplemod.exmod;
+package com.examplemod;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

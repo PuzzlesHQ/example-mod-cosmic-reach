@@ -21,8 +21,9 @@ Client, common and Server code now need to separate this mean in your mod's src 
 - You can now have three mixin.json for server, common and client, if you want separation.
 - Puzzle has update to its new gradle plugin jigsaw-suite, update your `build.gradle` & `gradle.properties` to example's ones.
 - Use `gradle cleanOldJigsawLocal` and `gradle cleanOldJigsawGlobal` to remove outdated Jigsaw directories from the local and global environments.
-- Run `gradle transformJars` or eqivilent to update your game jars.
+- Run `gradle createTransformSources` to create a sources jar
 
 ## Notes
 - Most project properties can be changed in the `gradle.properties`.
 - To add Puzzle mods in the build, make sure to use `commonImplementation` of common mod
+- To bundle a Puzzle mod or dependency in the build, make sure to use `commonBundle`, `serverBundle`, `clientBundle`

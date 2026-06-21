@@ -1,6 +1,6 @@
-package com.examplemod.exmod.block_entities;
+package com.examplemod.block_entities;
 
-import com.examplemod.exmod.Constants;
+import com.examplemod.Constants;
 import finalforeach.cosmicreach.blocks.Block;
 import finalforeach.cosmicreach.blocks.BlockPosition;
 import finalforeach.cosmicreach.blocks.BlockState;

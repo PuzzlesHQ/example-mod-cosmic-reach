@@ -1,6 +1,6 @@
-package com.examplemod.exmod.mixins.client;
+package com.examplemod.mixins.client;
 
-import com.examplemod.exmod.Constants;
+import com.examplemod.Constants;
 import finalforeach.cosmicreach.gamestates.MainMenu;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -21,7 +21,7 @@ public class MainMenuMixin {
         Constants.LOGGER.info("THE END OF THE MAIN MENU's create()");
     }
 
-    @Redirect(method = "create", at = @At(value = "INVOKE", target = "Lfinalforeach/cosmicreach/lang/Lang;get(Ljava/lang/String;)Ljava/lang/String;", ordinal = 1))
+    @Redirect(method = "create", at = @At(value = "INVOKE", target = "Lfinalforeach/cosmicreach/util/lang/Lang;get(Ljava/lang/String;)Ljava/lang/String;", ordinal = 1))
     private String setText(String key) {
         return "Better Button?";
     }

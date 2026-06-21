@@ -5,7 +5,7 @@
   "version": "${p_version}",
   "description": "${p_desc}",
   "authors": [
-    "${p_author}"
+    ${p_authors}
   ],
   "can-load-on": {
     "client": true,
@@ -52,8 +52,7 @@
     "${p_id}.manipulator"
   ],
 
-  "custom": {
-    "loom:injected_interfaces": {
-    }
-  }
+  "interface-injectors": [
+    "${p_id}.inject"
+  ]
 }
