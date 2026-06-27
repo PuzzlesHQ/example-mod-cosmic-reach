@@ -26,4 +26,5 @@ Client, common and Server code now need to separate this mean in your mod's src 
 ## Notes
 - Most project properties can be changed in the `gradle.properties`.
 - To add Puzzle mods in the build, make sure to use `commonImplementation` of common mod
+- To add puzzle mods from a jar do `commonImplementation files("libs/example-mod.jar")`
 - To bundle a Puzzle mod or dependency in the build, make sure to use `commonBundle`, `serverBundle`, `clientBundle`
