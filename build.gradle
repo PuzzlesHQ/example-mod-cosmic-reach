@@ -15,7 +15,6 @@ jigsawAccess {
 }
 
 jigsawInject {
-    setModJson(file("$projectDir/src/common/resources/puzzle.mod.json"))
     addInterfaceInjectors(file("$projectDir/src/common/resources/${p_id}.inject"))
 }
 
